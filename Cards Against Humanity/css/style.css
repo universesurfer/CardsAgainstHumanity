@@ -1,0 +1,12 @@
+.container {
+  margin-top: 100px;
+}
+
+
+
+.black-cards {
+  background-color: black;
+  color: white;
+  height: 320px;
+  width: 260px;
+}
