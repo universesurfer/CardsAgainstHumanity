@@ -10,3 +10,12 @@
   height: 320px;
   width: 260px;
 }
+
+
+.player-card {
+  height: 550px;
+  width: 300px;
+  background-color: lightgrey;
+  float: left;
+  margin-left: 15px;
+}

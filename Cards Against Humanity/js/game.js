@@ -29,18 +29,25 @@ function CardsAgainstHumanity (blackCards, whiteCards, score) {
     this.score = 0;
 
     // this.randomBlackCard();
-    // this.shuffleDeck();
+    // shuffleDeck();
 }
+
+
+//Shuffling the White Cards
+CardsAgainstHumanity.prototype.shuffleDeck = function () {
+    return _.shuffle(this.whiteCards);                                //Shuffle function using Lodash.
+};
+
+CardsAgainstHumanity.prototype.randomBlack = function(){
+    return this.blackCards[Math.floor(Math.random() * newGame.blackCards.length)];
+};
+
+
+
+
 
 //
 // CardsAgainstHumanity.prototype.randomBlackCard = function () {
 //   var random = this.blackCards[Math.floor(Math.random() * this.blackCards.length)];
 //   return random;
 // };
-
-
-//Shuffling the White Cards
-CardsAgainstHumanity.prototype.shuffleDeck = function () {     //Shuffle function using Lodash.
-    return _.shuffle(this.whiteCards);                         //Tried with vanilla JS.  Too much work.
-
-};
