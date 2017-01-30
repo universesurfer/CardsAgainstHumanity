@@ -1,5 +1,6 @@
 .container {
   margin-top: 100px;
+  display: none;
 }
 
 
@@ -7,15 +8,51 @@
 .black-cards {
   background-color: black;
   color: white;
-  height: 320px;
-  width: 260px;
+  height: 100px;
+  width: 300px;
 }
 
 
 .player-card {
   height: 550px;
   width: 300px;
-  background-color: lightgrey;
+  background-color: white;
+  border: 1px solid black;
   float: left;
   margin-left: 15px;
+}
+
+.player-black {
+  background-color: black;
+  color: white;
+  height: 100px;
+  width: 280px;
+  border-radius: 5px;
+  margin-left: 9px;
+  margin-top: 10px;
+}
+
+.player-white {
+  border-top: solid grey 1px;
+  height: 50px;
+  width: 280px;
+  margin-left: 8px;
+}
+
+
+.player-one {
+
+}
+
+.player-two {
+
+}
+
+.start {
+  background-color: lightblue;
+  width: 100px;
+  height: 30px;
+  border: solid 1px black;
+  border-radius: 5px;
+  float: right;
 }
