@@ -2,7 +2,7 @@ var newGame = new CardsAgainstHumanity();
 var players = new Players();
 var whiteDeck = newGame.whiteCards;
 
-
+// JQUERY ACTION
 $(document).ready(function() {
 
   $(".black-cards").on("click", function () {
@@ -13,62 +13,138 @@ $(document).ready(function() {
   //Start Button
   //Fades in the Player Div's When Clicked
   $(".start").on("click", function() {
-    $(".container").fadeIn(1000);
+    $(".welcome").fadeOut(1000);
+    $(".navbar").fadeIn(1250);
+    $(".container").fadeIn(1250);
+
   });
 
 
-
   players.createPlayerDecks(newGame.whiteCards);
-  // console.log(whiteDeck);
-  console.log(newGame.shuffleDeck());        //Calling just 'shuffleDeck();' returned undefined, because the function must be called
-                                             //with newGame.shuffleDeck();
+
 
 
 
 //WRITING PLAYER CARDS TO DIVS
-for (var i = 0; i < players.player1.length; i++) {
-  console.log(i);
-    $('.player-one').append('<div class="player-white">' + players.player1[i] + '</div>');
-}
+//Writing Select Buttons to Divs
+  for (var i = 0; i < players.player1.length; i++) {
+    // console.log(i);
+      var p = $('<p></p>');
+      p.html(players.player1[i]);
 
-for (var j = 0; j < players.player2.length; j++) {
-  console.log(j);
-    $('.player-two').append('<div class="player-white">' + players.player2[j] + '</div>');
-}
+      var button = $('<button></button>');
+      button.addClass("select-button");
+      button.html("select");
+
+      var div = $("<div></div>");
+      div.addClass("player-white");
+      div.append(p);
+      div.append(button);
+
+      $(".player-one").append(div);
+
+      // $('.player-one').append('<div class="player-white">' + p + '<button class="select-button">' + 'select' + '</button>' + '</div>');
+  }
+
+  for (var j = 0; j < players.player2.length; j++) {
+    // console.log(j);
+    var p = $('<p></p>');
+    p.html(players.player2[j]);
+
+    var button = $("<button></button>");
+    button.addClass("select-button");
+    button.html("select");
+
+    var div = $("<div></div>");
+    div.addClass("player-white-2");
+    div.append(p);
+    div.append(button);
+
+    $(".player-two").append(div);
+
+
+      // $('.player-two').append('<div class="player-white">' + players.player2[j] + '<button class="select-button">' + 'select' + '</button>' + '</div>');
+  }
+
+
+
+//SELECT BUTTON
+//Moves selection to the Card-Czar card for decision.
+//Selection by Card-Czar should award one point to corresponding player.
+//We select 'body' first for our onclick event.  Bc we are creating dynamically,
+//the later logic needs to start with the body to see if there's something that
+//needs to be manipulated.  If we start with a class, such as 'card-czar', jquery
+//doesn't see any changes.
 
 
 
 
-// $(players.player1).each(function (index, value) {
-//   $(".player-one", value).appendTo(".player-white");
-// });
-
-
-  console.log(players);
-});
 
 
 
 
+//Write the Player Cards to their Deck
+var switchDivOne;
+var switchDivTwo;
+
+  $("body").on("click", ".player-one .select-button", function () {
+    switchDivOne = $(this).closest(".player-one > .player-white").addClass("player-one-czar").remove();
+    $(".card-czar").append(switchDivOne);
+
+  });
+
+  $("body").on("click",".player-two .select-button", function () {
+    console.log("player-two");
+    switchDivTwo = $(this).closest(".player-two > .player-white-2").addClass("player-two-czar").remove();
+    $(".card-czar").append(switchDivTwo);
+  });
+
+
+
+  $("body").on("click", ".card-czar .player-one-czar .select-button", function () {
+      players.awardPointOne();
+
+  });
+
+  $("body").on("click", ".card-czar .player-two-czar .select-button", function () {
+      players.awardPointTwo();
+
+  });
+
+
+//addNewClass to player's chosen card.
+//Only want awarePoint to execute when Card Czar selects div.
 
 
 
 
 
-//Random Black Card
 
 
-// createPlayerDecks();    //Why do I only receive the first array if I do not call the function here?
 
 
-// <button onclick="numbers.forEach(myFunction)">Try it</button>
-// <p id="demo"></p>
-//
-// <script>
-// demoP = document.getElementById("demo");
-// var numbers = [4, 9, 16, 25];
-//
-// function myFunction(item, index) {
-//     demoP.innerHTML = demoP.innerHTML + "index[" + index + "]: " + item + "<br>";
+
+
+
+
+
+
+  //Award Point to Corresponding Player When Card Czar Hits Their Select
+
+//   function playerOneClick() {
+//   $('body').on("click", ".card-czar .player-white .select-button", function () {
+//     console.log("Player One Maaaaaan");
+//   });
 // }
-// </script>
+// playerOneClick();
+//
+//
+//   function playerTwoClick() {
+//   $('body').on("click", ".card-czar .player-white-2 .select-button", function () {
+//     console.log("Player Two Sucka");
+//   });
+// }
+// playerTwoClick();
+
+
+});

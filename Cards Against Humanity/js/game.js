@@ -19,7 +19,7 @@ function CardsAgainstHumanity (blackCards, whiteCards, score) {
       "Racism",
       "Old-people smell.",
       "Women in yogurt commercials",
-      "A micropenis",
+      "Trump's micropenis",
       "Classist undertones",
       "Not giving a shit about the Third World",
       "Court ordered rehab.",
@@ -27,6 +27,8 @@ function CardsAgainstHumanity (blackCards, whiteCards, score) {
     ];
 
     this.score = 0;
+    // this.playerOneScore = 0;
+    // this.playerTwoScore = 0;
 
     // this.randomBlackCard();
     // shuffleDeck();
@@ -38,16 +40,26 @@ CardsAgainstHumanity.prototype.shuffleDeck = function () {
     return _.shuffle(this.whiteCards);                                //Shuffle function using Lodash.
 };
 
+//Chooses a Random Black Card
 CardsAgainstHumanity.prototype.randomBlack = function(){
     return this.blackCards[Math.floor(Math.random() * newGame.blackCards.length)];
 };
 
 
+//Award Point to Corresponding Player When Card Czar Hits Their Select
 
+      function playerOneClick() {
+          $('body').on("click", ".card-czar .player-white .select-button", function () {
+            console.log("Player One man");
+          });
+      }
 
+      function playerTwoClick() {
+          $('body').on("click", ".card-czar .player-white-2 .select-button", function () {
+            console.log("Player Two Sucka");
+          });
+      }
 
-//
-// CardsAgainstHumanity.prototype.randomBlackCard = function () {
-//   var random = this.blackCards[Math.floor(Math.random() * this.blackCards.length)];
-//   return random;
-// };
+CardsAgainstHumanity.prototype.awardPoint = function (player) {
+    return player.this.score++;
+};
