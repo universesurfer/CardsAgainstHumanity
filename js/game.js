@@ -1,6 +1,6 @@
 
 
-function CardsAgainstHumanity (blackCards, whiteCards, score) {
+function CardsAgainstHumanity (blackCards, whiteCards) {
     this.blackCards = [
       "How did I lose my virginity?",
       "Why can't I sleep at night?",
@@ -10,7 +10,6 @@ function CardsAgainstHumanity (blackCards, whiteCards, score) {
       "What's the next Happy Meal toy?",
       "Here is the church. \n Here is the steeple. \n Open the doors \n And there is ________________.",
       "It's a pity that kids these days are all getting involved with _______________."
-
       ];
 
     this.whiteCards = [
@@ -26,40 +25,24 @@ function CardsAgainstHumanity (blackCards, whiteCards, score) {
       "A windmill full of corpses."
     ];
 
-    this.score = 0;
-    // this.playerOneScore = 0;
-    // this.playerTwoScore = 0;
 
-    // this.randomBlackCard();
-    // shuffleDeck();
 }
 
 
-//Shuffling the White Cards
+// Shuffling the White Cards
 CardsAgainstHumanity.prototype.shuffleDeck = function () {
-    return _.shuffle(this.whiteCards);                                //Shuffle function using Lodash.
+    return _.shuffle(this.whiteCards);                        //Shuffle function using Lodash.
 };
+
+// function shuffleDeck () {
+//   return _.shuffle(newGame.whiteCards);
+// }
 
 //Chooses a Random Black Card
 CardsAgainstHumanity.prototype.randomBlack = function(){
     return this.blackCards[Math.floor(Math.random() * newGame.blackCards.length)];
 };
 
-
-//Award Point to Corresponding Player When Card Czar Hits Their Select
-
-      function playerOneClick() {
-          $('body').on("click", ".card-czar .player-white .select-button", function () {
-            console.log("Player One man");
-          });
-      }
-
-      function playerTwoClick() {
-          $('body').on("click", ".card-czar .player-white-2 .select-button", function () {
-            console.log("Player Two Sucka");
-          });
-      }
-
-// CardsAgainstHumanity.prototype.awardPoint = function (player) {
-//     return player.this.score++;
+// CardsAgainstHumanity.prototype.startNewGame = function () {
+//     return this.shuffleDeck();
 // };

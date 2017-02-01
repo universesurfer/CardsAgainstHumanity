@@ -3,12 +3,32 @@
   display: none;
 }
 
+#new-game {
+  width: 100px;
+  height: 50px;
+  float: right;
+  font-family: "Montserrat", sans-serif;
+  background-color: black;
+  border: 1px solid white;
+  border-radius: 5px;
+  color: white;
+  margin-right: 15px;
+  margin-top: 8px;
+}
+
+#new-game:active {
+  background-color: rgb(111, 144, 84);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
 #header {
   font-family: "Montserrat", sans-serif;
   font-size: 2em;
   margin-top: 15px;
   margin-left: 10px;
   color: white;
+  width: 75%;
 }
 
 .dropdown {
@@ -33,7 +53,7 @@
 
 
 .container {
-  margin-top: 100px;
+  margin-top: 0 auto;
   display: none;
 }
 
@@ -172,6 +192,10 @@
 .player-two {
   margin-top: 10px;
   /*filter: blur(5px);*/
+}
+
+.card-container {
+  margin-top: 10px;
 }
 
 .card-czar {

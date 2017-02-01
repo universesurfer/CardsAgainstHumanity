@@ -1,6 +1,6 @@
 var newGame = new CardsAgainstHumanity();
 var players = new Players();
-var whiteDeck = newGame.whiteCards;
+// var whiteDeck = newGame.whiteCards;
 
 // JQUERY ACTION
 $(document).ready(function() {
@@ -22,6 +22,7 @@ $(document).ready(function() {
       $(".container").fadeIn(1000);
     });
 
+  //Giving the Players White Cards
   players.createPlayerDecks(newGame.whiteCards);
 
 
@@ -85,7 +86,7 @@ var switchDivTwo;
 
   $("body").on("click", ".player-one .select-button", function () {
     switchDivOne = $(this).closest(".player-one > .player-white").addClass("player-one-czar").remove();
-    $(".card-czar").append(switchDivOne);
+    $(".card-czar .card-container").append(switchDivOne);
 
     //Check player 1 card length after each card selection.
     players.checkCardLengthOne();
@@ -95,7 +96,7 @@ var switchDivTwo;
 
   $("body").on("click",".player-two .select-button", function () {
     switchDivTwo = $(this).closest(".player-two > .player-white-2").addClass("player-two-czar").remove();
-    $(".card-czar").append(switchDivTwo);
+    $(".card-czar .card-container").append(switchDivTwo);
 
     //Check player 2 card length after each card selection.
     players.checkCardLengthTwo();
@@ -122,8 +123,59 @@ var switchDivTwo;
       players.whoWon();
   });
 
-// players.compareCardLength();
 
+// var deckk = newGame.shuffleDeck();
+// console.log(deckk);
+
+  $("body").on("click", "#new-game", function() {
+      var newDecks;
+      newDecks = newGame.shuffleDeck();
+      console.log(newDecks);
+      players.createPlayerDecks(newDecks);
+      $("body .player-one, body .player-two").empty();
+      $(".awesome-score-one, .awesome-score-two").empty();
+      $(".card-container").empty();
+
+
+      for (var i = 0; i < players.player1.length; i++) {
+        // console.log(i);
+          var p = $('<p></p>');
+          p.html(players.player1[i]);
+
+          var button = $('<button></button>');
+          button.addClass("select-button");
+          button.html("select");
+
+          var div = $("<div></div>");
+          div.addClass("player-white");
+          div.append(p);
+          div.append(button);
+
+          $(".player-one").append(div);
+
+}
+
+          for (var j = 0; j < players.player2.length; j++) {
+            // console.log(j);
+            var p = $('<p></p>');
+            p.html(players.player2[j]);
+
+            var button = $("<button></button>");
+            button.addClass("select-button");
+            button.html("select");
+
+            var div = $("<div></div>");
+            div.addClass("player-white-2");
+            div.append(p);
+            div.append(button);
+
+            $(".player-two").append(div);
+}
+
+
+      // set original array to shuffled deck, rewrite to divs...
+      // window.location.reload();
+  });
 
 
 

@@ -41,14 +41,17 @@ Players.prototype.compareScores = function () {
   var awesomeTwoInteger = Number($(".awesome-score-two").html());
 
   if(awesomeOneInteger > awesomeTwoInteger) {
+    alert("Player One Wins...");
     console.log("Player One Wins...");
   }
 
   else if (awesomeTwoInteger > awesomeOneInteger) {
+    alert("Player Two Wins...");
     console.log("Player Two Wins...");
   }
 
   else if (awesomeOneInteger === awesomeTwoInteger) {
+    alert("Tie Game...");
     console.log("Tie Game...");
   }
 
