@@ -5,24 +5,24 @@ var whiteDeck = newGame.whiteCards;
 // JQUERY ACTION
 $(document).ready(function() {
 
+
+  // PUT THE PLAYER CARDS IN HOLDING DIV THAT CAN BE SELECTED WITH BLACK BUTTON CLICK.
+  // CANNOT SELECT NEW BLACK UNLESS TWO CARDS PRESENT.  just an idea...
+
   $(".black-cards").on("click", function () {
     $(".player-black").text(newGame.randomBlack());
+    $(".card-czar .player-white, .card-czar .player-white-2").remove();
   });
-
 
   //Start Button
   //Fades in the Player Div's When Clicked
-  $(".start").on("click", function() {
-    $(".welcome").fadeOut(1000);
-    $(".navbar").fadeIn(1250);
-    $(".container").fadeIn(1250);
-
-  });
-
+    $(".start").on("click", function() {
+      $(".welcome").fadeOut(1000);
+      $(".navbar").fadeIn(1000);
+      $(".container").fadeIn(1000);
+    });
 
   players.createPlayerDecks(newGame.whiteCards);
-
-
 
 
 //WRITING PLAYER CARDS TO DIVS
@@ -68,6 +68,7 @@ $(document).ready(function() {
 
 
 
+
 //SELECT BUTTON
 //Moves selection to the Card-Czar card for decision.
 //Selection by Card-Czar should award one point to corresponding player.
@@ -75,11 +76,6 @@ $(document).ready(function() {
 //the later logic needs to start with the body to see if there's something that
 //needs to be manipulated.  If we start with a class, such as 'card-czar', jquery
 //doesn't see any changes.
-
-
-
-
-
 
 
 
@@ -91,29 +87,42 @@ var switchDivTwo;
     switchDivOne = $(this).closest(".player-one > .player-white").addClass("player-one-czar").remove();
     $(".card-czar").append(switchDivOne);
 
+    //Check player 1 card length after each card selection.
+    players.checkCardLengthOne();
+
+
   });
 
   $("body").on("click",".player-two .select-button", function () {
-    console.log("player-two");
     switchDivTwo = $(this).closest(".player-two > .player-white-2").addClass("player-two-czar").remove();
     $(".card-czar").append(switchDivTwo);
+
+    //Check player 2 card length after each card selection.
+    players.checkCardLengthTwo();
   });
 
 
 
+
+//When the Card Czar Chooses a winning card, selection awards point to corresponding player.
   $("body").on("click", ".card-czar .player-one-czar .select-button", function () {
       players.awardPointOne();
+      $(".awesome-score-one").text(players.playerOneScore);
+      console.log(Number($(".awesome-score-one").html()));
+
+      players.whoWon();
 
   });
 
   $("body").on("click", ".card-czar .player-two-czar .select-button", function () {
       players.awardPointTwo();
+        $(".awesome-score-two").text(players.playerTwoScore);
+        console.log($(".awesome-score-two").html());
 
+      players.whoWon();
   });
 
-
-//addNewClass to player's chosen card.
-//Only want awarePoint to execute when Card Czar selects div.
+// players.compareCardLength();
 
 
 
@@ -127,24 +136,6 @@ var switchDivTwo;
 
 
 
-
-
-  //Award Point to Corresponding Player When Card Czar Hits Their Select
-
-//   function playerOneClick() {
-//   $('body').on("click", ".card-czar .player-white .select-button", function () {
-//     console.log("Player One Maaaaaan");
-//   });
-// }
-// playerOneClick();
-//
-//
-//   function playerTwoClick() {
-//   $('body').on("click", ".card-czar .player-white-2 .select-button", function () {
-//     console.log("Player Two Sucka");
-//   });
-// }
-// playerTwoClick();
 
 
 });

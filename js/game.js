@@ -60,6 +60,6 @@ CardsAgainstHumanity.prototype.randomBlack = function(){
           });
       }
 
-CardsAgainstHumanity.prototype.awardPoint = function (player) {
-    return player.this.score++;
-};
+// CardsAgainstHumanity.prototype.awardPoint = function (player) {
+//     return player.this.score++;
+// };

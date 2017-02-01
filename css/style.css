@@ -18,6 +18,18 @@
 
 }
 
+/*.slideDown{
+	animation-name: slideDown;
+	-webkit-animation-name: slideDown;
+
+	animation-duration: 1s;
+	-webkit-animation-duration: 1s;
+
+	animation-timing-function: ease;
+	-webkit-animation-timing-function: ease;
+
+	visibility: visible !important;
+}*/
 
 
 .container {
@@ -45,15 +57,42 @@
   margin-left: 15px;
   font-weight: bold;
   word-wrap: break-word;
+  border-radius: 5px;
+  /*filter: blue 5px;*/
+
 }
 
-.awesome-score {
-  display: flex;
-  justify-content: space-around;;
-  flex-direction: row;
+.awesome-score-one {
   height: 50px;
-  width: 80%;
-  clear: both;
+  width: 300px;
+  margin-left: 12px;
+  border-radius: 5px;
+  background-color: black;
+  margin-left: 14px;
+  margin-top: 30px;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.5em;
+  text-align: center;
+  padding-top: auto;
+  padding-bottom: auto;
+}
+
+.awesome-score-two {
+  height: 50px;
+  width: 300px;
+  margin-left: 12px;
+  border-radius: 5px;
+  background-color: black;
+  margin-left: 14px;
+  margin-top: 30px;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.5em;
+  text-align: center;
+  padding-top: auto;
+  padding-bottom: auto;
+
 }
 
 .player-black {
@@ -72,8 +111,8 @@
   border-top: solid grey 1px;
   height: 50px;
   width: 310px;
-  margin-left: 8px;
-  padding-top: 14px;
+  margin-left: 9px;
+  padding-top: 12px;
   text-align: center;
   word-wrap: break-word;
   display: flex;                        //Display flexbox property
@@ -81,17 +120,25 @@
   justify-content: space-around;        //and wrap the text.
 }
 
+.player-white:hover {
+  background-color: rgb(217, 237, 247);
+}
+
 .player-white-2 {
   border-top: solid grey 1px;
   height: 50px;
   width: 310px;
-  margin-left: 8px;
-  padding-top: 14px;
+  margin-left: 9px;
+  padding-top: 12px;
   text-align: center;
   word-wrap: break-word;
   display: flex;                        //Display flexbox property
   flex-direction: row;                  //allows us to layer the divs
   justify-content: space-around;        //and wrap the text.
+}
+
+.player-white-2:hover {
+  background-color: rgb(217, 237, 247);
 }
 
 .player-white p {
@@ -118,9 +165,13 @@
 
 
 .player-one {
+  margin-top: 10px;
+  /*filter: blur(5px);*/
 }
 
 .player-two {
+  margin-top: 10px;
+  /*filter: blur(5px);*/
 }
 
 .card-czar {
@@ -137,14 +188,25 @@
 }
 
 .welcome {
-  width: 600px;
-  height: 400px;
+  width: 1000px;
+  height: 500px;
   display: flex;
   border: solid black 1px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 100px;
-  animate
+  margin-top: 130px;
+  background-color: black;
+}
+
+.welcome-text {
+  display: flex;
+  flex-direction: column;
+  width: 30px;
+  height: 500px;
+  background-color: white;
+  color: black;
+  font-family: "Montserrat", sans-serif;
+  border-color: white;
 }
 
 #you-are-czar {
