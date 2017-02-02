@@ -7,8 +7,8 @@ function Players (score) {
 }
 
 Players.prototype.createPlayerDecks = function(whiteCardsArray){
-  this.player1 = whiteCardsArray.slice(0,5);
-  this.player2 = whiteCardsArray.slice(5,11);
+  this.player1 = whiteCardsArray.slice(0,7);
+  this.player2 = whiteCardsArray.slice(7,14);
 };
 
 Players.prototype.awardPointOne = function () {

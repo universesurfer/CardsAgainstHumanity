@@ -9,62 +9,75 @@
     </head>
 
 
-  <body>
+<body>
 
+  <!-- <audio>
+      <source src="https://www.soundjay.com/button/sounds/button-21.mp3" type="audio/mp3">
+  </audio> -->
+
+    <!-- NAV BAR -->
     <div class="navbar navbar-inverse">
       <button id="new-game">New Game</button>
       <div id="header">Cards Against Humanity</div>
+    </div>
+
+    <div class="welcome">
+      <div class="welcome-wrapper">
+      <div id="title">Cards </br>Against</br>Humanity</div> </br>
+      <div id="subtitle">A party game for horrible people</div>
+      <div id="instructions">
+          <ul>
+            Basic Rules
+            <li>Each player is given 7 random cards from the white deck.</li>
+            <li><!-- <li>Drinking encouraged.</li> --></li>
+            <li></li>
+            <li></li>
+          </ul>
+      </div>
+
+      <button class="start">Start</button>
+      </div>
+
 
 
     </div>
 
+    <!-- CONTAINER -->
     <div class="container">
 
 
-
-        <div class="player-card card-czar">                           <!--Card Czar-->
+        <!--Card Czar-->
+        <div class="player-card card-czar">
           <div class="black-cards player-black"> </div>
           <div id="you-are-czar">you are the Card Czar</div>
           <div id="pick-a-card">select a card to be the winner</div>
-          <div class="card-container"></div>
-
-
+          <div class="card-container">
+          </div>
         </div>
+
+        <!-- Player One -->
         <div class="player-card">
           <div class="player-black"> </div>
           <div class="player-one"></div>
           <div class="awesome-score-one"></div>
-
-
         </div>
+
+        <!-- Player Two -->
         <div class="player-card">
           <div class="player-black"> </div>
           <div class="player-two"></div>
-
           <div class="awesome-score-two"></div>
-
-
         </div>
-
-
 
     </div>
 
-
-
-            <div class="welcome">
-
-            <button class="start">Start</button>
-
-            </div>
-
-
-
+    <!-- Javascript -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.4/lodash.js"></script>
     <script type="text/javascript" src="js/game.js"></script>
     <script type="text/javascript" src="js/player.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
-  </body>
+
+</body>
 
 </html>
