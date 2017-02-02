@@ -1,5 +1,10 @@
+//Creating an empty variable to hold a new shuffled white deck each time the
+//game is loaded.  Setting it equal to the white deck in the class below.
+//Calling my createPlayerDecks prototype in my index.js and passing it the
+//freshly shuffled deck.
+var newWhiteDeck;
 
-
+//Class holding my Black and White Decks
 function CardsAgainstHumanity (blackCards, whiteCards) {
     this.blackCards = [
       "How did I lose my virginity?","Why can't I sleep at night?", "What's that smell?",
@@ -14,13 +19,11 @@ function CardsAgainstHumanity (blackCards, whiteCards) {
         "What will I bring back in time to convince people that I am a powerful wizard?",
         "Coming to Broadyway this season, ____________: The Musical.",
         "After the earthquake, Sean Penn brought __________ to the people of Haiti.",
-        "Step 1: _______ \n Step 2:_______ \n Step 3: Profit.",
         "When Pharaoh remained unmoved, Moses called down a Plague of ________.",
         "What's there a ton of in heaven?", "What would grandma find disturbing, yet oddly charming?",
         "What did the U.S. airdrop to the children of Afghanistan?",
         "What helps Obama unwind?", "_________: \n good to the last drop.",
         "What gets better with age?", "_________: \n kid-tested, mother-approved.",
-        "Daddy, why is mommy crying?",
         "Life for American Indians was forever changed when the white man introduced them to _________.",
         "What never fails to liven up the party?",
         "Fun tip!  When your man asks you to go down on him, try surprising him with ________ instead.",
@@ -63,10 +66,11 @@ function CardsAgainstHumanity (blackCards, whiteCards) {
       "Alter boys.", "50,000 volts straight to the nipples.", "The folly of man.", "72 virgins.",
       "Extremely tight pants.", "Our first chimpanzee president.", "Two midgets shitting into a bucket.",
       "Dropping a chandelier on your enemies and riding the rope up.",
-      "Donald Trump's terrible breath.", ""
+      "Donald Trump's terrible breath."
 
     ];
 
+    newWhiteDeck = this.shuffleDeck();
 }
 
 
@@ -75,6 +79,7 @@ function CardsAgainstHumanity (blackCards, whiteCards) {
 CardsAgainstHumanity.prototype.shuffleDeck = function () {
     return _.shuffle(this.whiteCards);
 };
+
 
 //Chooses a Random Black Card
 CardsAgainstHumanity.prototype.randomBlack = function(){

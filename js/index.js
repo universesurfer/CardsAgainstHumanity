@@ -14,14 +14,17 @@ $(document).ready(function() {
   $("body .welcome .welcome-wrapper").fadeIn(1000);
   $("body .welcome .welcome-wrapper #title").fadeIn(2100);
   $("#subtitle").delay(2000).fadeIn(2100);
-  $("#instructions").delay(2800).fadeIn(2100);
-  $(".start").delay(5000).fadeIn(2100);
-  // $("body .welcome .welcome-wrapper #instructions").fadeIn(2500);
+  $("#instructions").delay(4000).fadeIn(2100);
+  $(".start").delay(4000).fadeIn(2100);
 
 
+  //When you pick a black card, pick it randomly.  Remove any cards that are present.
+  //Reenable the player white cards after the new black card is chosen.
   $(".black-cards").on("click", function () {
     $(".player-black").text(newGame.randomBlack());
     $(".card-czar .player-white, .card-czar .player-white-2").remove();
+    $(".player-one .select-button").prop("disabled", false);
+    $(".player-two .select-button").prop("disabled", false);
   });
 
   //Start Button
@@ -32,8 +35,10 @@ $(document).ready(function() {
       $(".container").fadeIn(1250);
     });
 
+
   //Giving the Players White Cards
-  players.createPlayerDecks(newGame.whiteCards);
+  players.createPlayerDecks(newWhiteDeck);
+
 
 
 //WRITING PLAYER CARDS TO DIVS
@@ -54,11 +59,9 @@ $(document).ready(function() {
 
       $(".player-one").append(div);
 
-      // $('.player-one').append('<div class="player-white">' + p + '<button class="select-button">' + 'select' + '</button>' + '</div>');
   }
 
   for (var j = 0; j < players.player2.length; j++) {
-    // console.log(j);
     var p = $('<p></p>');
     p.html(players.player2[j]);
 
@@ -73,11 +76,11 @@ $(document).ready(function() {
 
     $(".player-two").append(div);
 
-
-      // $('.player-two').append('<div class="player-white">' + players.player2[j] + '<button class="select-button">' + 'select' + '</button>' + '</div>');
   }
 
-
+  //Make the cards disabled at start.
+  $(".player-one .select-button").prop("disabled", true);
+  $(".player-two .select-button").prop("disabled", true);
 
 
 //SELECT BUTTON
@@ -88,8 +91,6 @@ $(document).ready(function() {
 //needs to be manipulated.  If we start with a class, such as 'card-czar', jquery
 //doesn't see any changes.
 
-
-
 //Write the Player Cards to their Deck
 var switchDivOne;
 var switchDivTwo;
@@ -98,6 +99,7 @@ var switchDivTwo;
     clicked.play();
     switchDivOne = $(this).closest(".player-one > .player-white").addClass("player-one-czar").remove();
     $(".card-czar .card-container").append(switchDivOne);
+    $(".player-one .select-button").prop("disabled", true);
 
     //Check player 1 card length after each card selection.
     players.checkCardLengthOne();
@@ -109,6 +111,7 @@ var switchDivTwo;
     clicked.play();
     switchDivTwo = $(this).closest(".player-two > .player-white-2").addClass("player-two-czar").remove();
     $(".card-czar .card-container").append(switchDivTwo);
+    $(".player-two .select-button").prop("disabled", true);
 
     //Check player 2 card length after each card selection.
     players.checkCardLengthTwo();
@@ -119,6 +122,9 @@ var switchDivTwo;
   $("body").on("click", ".card-czar .player-one-czar .select-button", function () {
       selectedCard.play();
       players.awardPointOne();
+      //Disabling the button after clicked to avoid accidental overscoring.
+      $(".player-one-czar .select-button").prop("disabled", true);
+      $(".player-two-czar .select-button").prop("disabled", true);
       $(".awesome-score-one").text(players.playerOneScore);
       console.log(Number($(".awesome-score-one").html()));
 
@@ -129,6 +135,9 @@ var switchDivTwo;
   $("body").on("click", ".card-czar .player-two-czar .select-button", function () {
       selectedCard.play();
       players.awardPointTwo();
+      //Disabling the button after clicked to avoid accidental overscoring.
+      $(".player-two-czar .select-button").prop("disabled", true);
+      $(".player-one-czar .select-button").prop("disabled", true);
         $(".awesome-score-two").text(players.playerTwoScore);
         console.log($(".awesome-score-two").html());
 
@@ -139,7 +148,9 @@ var switchDivTwo;
   //NEW GAME BUTTON
   //We shuffle the deck of white cards, create the new player decks, and drop
   $("body").on("click", "#new-game", function() {
+      $(".card-czar").children().show();
       clicked.play();
+      $(".win-img").remove();
       var newDecks;
       newDecks = newGame.shuffleDeck();
       console.log(newDecks);
@@ -153,7 +164,6 @@ var switchDivTwo;
 
 
       for (var i = 0; i < players.player1.length; i++) {
-        // console.log(i);
           var p = $('<p></p>');
           p.html(players.player1[i]);
 
@@ -171,7 +181,6 @@ var switchDivTwo;
 }
 
           for (var j = 0; j < players.player2.length; j++) {
-            // console.log(j);
             var p = $('<p></p>');
             p.html(players.player2[j]);
 
@@ -186,10 +195,6 @@ var switchDivTwo;
 
             $(".player-two").append(div);
 }
-
-
-      // set original array to shuffled deck, rewrite to divs...
-      // window.location.reload();
   });
 
 
