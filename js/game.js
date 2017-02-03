@@ -40,7 +40,7 @@ function CardsAgainstHumanity (blackCards, whiteCards) {
       "A tiny horse.", "Boogers.", "Penis Envy.", "Barack Obama.", "Scientology.", "Dry heaving.",
       "Skeletor.", "Darth Vader.", "Advice from a wise, old black man.", "Five dollar footlongs.",
       "Elderly Japanese men.", "Free samples.", "Estrogen.", "Sexual tension.", "Famine.",
-      "A stray pube.", "Men.", "Heartwarming orphans.", "Chunks of dead hitchhiker. :(", "A bag of magic beans.",
+      "Men.", "Heartwarming orphans.", "Chunks of dead hitchhiker. :(", "A bag of magic beans.",
       "Repression.", "Prancing.", "My relationship status.", "Overcompensation.", "Peeing a little bit.",
       "Pooping back and forth, forever.", "A ball of earwax, semen, and toenail clippings.", "Testicular torsion.",
       "The Devil himself.", "Dick Cheney.", "MechaHitler.", "Being fabulous.", "Pictures of Boobs.",

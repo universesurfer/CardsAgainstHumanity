@@ -9,6 +9,7 @@ selectedCard.src = "https://www.soundjay.com/button/sounds/button-30.mp3";
 $(document).ready(function() {
 
   //Fade In Our Welcome Elements
+  //Hides everything first to enable animations.
   $("body .welcome .welcome-wrapper").hide().fadeIn(1000);
   $("body .welcome .welcome-wrapper #title, #subtitle, #instructions, #start-wrapper").hide();
   $("body .welcome .welcome-wrapper").fadeIn(1000);
@@ -105,7 +106,6 @@ var switchDivTwo;
     //Check player 1 card length after each card selection.
     players.checkCardLengthOne();
 
-
   });
 
   $("body").on("click",".player-two .select-button", function () {
@@ -117,7 +117,6 @@ var switchDivTwo;
     //Check player 2 card length after each card selection.
     players.checkCardLengthTwo();
   });
-
 
 //When the Card Czar Chooses a winning card, selection awards point to corresponding player.
   $("body").on("click", ".card-czar .player-one-czar .select-button", function () {
