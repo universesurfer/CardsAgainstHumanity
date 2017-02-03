@@ -10,16 +10,17 @@ $(document).ready(function() {
 
   //Fade In Our Welcome Elements
   $("body .welcome .welcome-wrapper").hide().fadeIn(1000);
-  $("body .welcome .welcome-wrapper #title, #subtitle, #instructions, .start").hide();
+  $("body .welcome .welcome-wrapper #title, #subtitle, #instructions, #start-wrapper").hide();
   $("body .welcome .welcome-wrapper").fadeIn(1000);
   $("body .welcome .welcome-wrapper #title").fadeIn(2100);
   $("#subtitle").delay(2000).fadeIn(2100);
   $("#instructions").delay(4000).fadeIn(2100);
-  $(".start").delay(4000).fadeIn(2100);
+  $("#start-wrapper").delay(4000).fadeIn(2100);
 
 
   //When you pick a black card, pick it randomly.  Remove any cards that are present.
   //Reenable the player white cards after the new black card is chosen.
+  $(".black-cards").text("Click to Pull a Black Card");
   $(".black-cards").on("click", function () {
     $(".player-black").text(newGame.randomBlack());
     $(".card-czar .player-white, .card-czar .player-white-2").remove();
@@ -29,7 +30,7 @@ $(document).ready(function() {
 
   //Start Button
   //Fades in the Player Div's When Clicked
-    $(".start").on("click", function() {
+    $("#start").on("click", function() {
       $(".welcome").fadeOut(1000);
       $(".navbar").fadeIn(1250);
       $(".container").fadeIn(1250);
@@ -126,7 +127,7 @@ var switchDivTwo;
       $(".player-one-czar .select-button").prop("disabled", true);
       $(".player-two-czar .select-button").prop("disabled", true);
       $(".awesome-score-one").text(players.playerOneScore);
-      console.log(Number($(".awesome-score-one").html()));
+      // console.log(Number($(".awesome-score-one").html()));
 
       players.whoWon();
 
@@ -139,10 +140,71 @@ var switchDivTwo;
       $(".player-two-czar .select-button").prop("disabled", true);
       $(".player-one-czar .select-button").prop("disabled", true);
         $(".awesome-score-two").text(players.playerTwoScore);
-        console.log($(".awesome-score-two").html());
+        // console.log($(".awesome-score-two").html());
 
       players.whoWon();
   });
+
+
+    // GAMBLE! Player One
+    $("body").on("click", "#gamble-one", function() {
+      $(".player-one .select-button").prop("disabled", false);
+
+      // Checks if Card Czar Chooses Player One After Gamble
+      $("body .card-czar .player-one-czar .select-button").click(function () {
+          selectedCard.play();
+          players.awardPointOne();
+    });
+
+      // Checks if Card Czar Chooses Player Two After Gamble
+      //If so, award point to player two, and remove point from player one.
+      //Update player two score.
+      $("body .card-czar .player-two-czar .select-button").click(function () {
+          selectedCard.play();
+          players.awardPointTwo();
+          players.removePointOne();
+
+          $(".awesome-score-one").empty();
+          $(".awesome-score-one").text(players.playerOneScore);
+          console.log(Number($(".awesome-score-one").html()));
+    });
+  });
+
+
+  // GAMBLE! Player Two
+  $("body").on("click", "#gamble-two", function() {
+    $(".player-two .select-button").prop("disabled", false);
+
+    // Checks if Card Czar Chooses Player Two After Gamble
+    //If so, award point.
+    $("body .card-czar .player-two-czar .select-button").click(function () {
+        selectedCard.play();
+        players.awardPointTwo();
+  });
+
+    // Checks if Card Czar Chooses Player One After Gamble
+    //If so, award point to player one, and remove point from player two.
+    //Update player two score.
+    $("body .card-czar .player-one-czar .select-button").click(function () {
+        selectedCard.play();
+        players.awardPointOne();
+        players.removePointTwo();
+
+        $(".awesome-score-two").empty();
+        $(".awesome-score-two").text(players.playerTwoScore);
+        console.log(Number($(".awesome-score-two").html()));
+  });
+});
+
+
+  $("body").on("click", "#gamble-two", function() {
+    $(".player-two .select-button").prop("disabled", false);
+  });
+
+
+
+
+
 
 
   //NEW GAME BUTTON
@@ -160,6 +222,7 @@ var switchDivTwo;
       players.playerOneScore = 0;
       players.playerTwoScore = 0;
       $(".player-black").empty();
+      $(".black-cards").text("Click to Pull a Black Card");
       $(".card-container").empty();
 
 

@@ -11,14 +11,10 @@
 
 <body>
 
-  <!-- <audio>
-      <source src="https://www.soundjay.com/button/sounds/button-21.mp3" type="audio/mp3">
-  </audio> -->
-
     <!-- NAV BAR -->
     <div class="navbar navbar-inverse">
       <button id="new-game">New Game</button>
-      <button id="rando-cardrissian">Rando Cardrissian</button>
+      <!-- <button id="rando-cardrissian">Rando Cardrissian</button> -->
       <div id="header">Cards Against Humanity</div>
     </div>
 
@@ -26,23 +22,24 @@
       <div class="welcome-wrapper">
       <div id="title">Cards </br>Against</br>Humanity</div> </br>
       <div id="subtitle">A party game for horrible people</div>
-      <div id="instructions">
+      <!-- <div id="instructions">
             <h5>Rules</h5>
             <p id="welcome-list">
-            Card Czar chooses Black Card and reads it aloud.</br></br>
-            Players select best matching card from their deck of random white cards. </br></br>
-            Card Czar picks the funniest play - whoever chose it is awarded an Awesome Point.</br>
-            Highest score after cards are gone wins.</br></br>
-            You should be drinking.  But play anyway</br></br>
-            Click 'New Game' to shuffle the cards and start again.
-
+            • Card Czar chooses Black Card and reads it aloud.</br></br>
+            • Players select best matching card from their deck of random white cards. </br></br>
+            • Card Czar picks the funniest play and player is awarded an Awesome Point.</br></br>
+            • Highest score wins.</br></br>
+            • GAMBLING: Bet one of your Awesome Points by playing an additional white card.</br></br>
+            • You should be drinking.  But play anyway.</br></br>
             </p>
+      </div> -->
+
+      <div id="start-wrapper">
+      <button id="start">Start</button>
       </div>
 
-      <button class="start">Start</button>
-      </div>
 
-
+    </div>
 
     </div>
 
@@ -57,21 +54,37 @@
           <div id="pick-a-card">select a card to be the winner</div>
           <div class="card-container">
           </div>
+
         </div>
 
         <!-- Player One -->
         <div class="player-card">
           <div class="player-black"> </div>
           <div class="player-one"></div>
+
+
+          <!-- GAMBLE -->
+          <div id="bottom-wrapper">
           <div class="awesome-score-one"></div>
+          <button id="gamble-one">Gamble</button>
+        </div>
+
         </div>
 
         <!-- Player Two -->
         <div class="player-card">
           <div class="player-black"> </div>
           <div class="player-two"></div>
-          <div class="awesome-score-two"></div>
+
+
+          <!-- GAMBLE -->
+          <div id="bottom-wrapper">
+            <div class="awesome-score-two"></div>
+            <button id="gamble-two">Gamble</button>
+          </div>
+
         </div>
+
 
     </div>
 

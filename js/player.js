@@ -6,34 +6,48 @@ function Players (player1, player2, playerOneScore, playerTwoScore) {
   this.playerTwoScore = 0;
 }
 
-
+// Create a deck of white cards for each player.
 Players.prototype.createPlayerDecks = function(newWhiteDeck){
-  // newGame.shuffleDeck();
   this.player1 = newWhiteDeck.slice(0,7);
   this.player2 = newWhiteDeck.slice(7,14);
 };
 
+//Award point to player one.
 Players.prototype.awardPointOne = function () {
     return this.playerOneScore++;
 };                                            //>Divide and Conquer
 
+//Award point to player two.
 Players.prototype.awardPointTwo = function () {
     return this.playerTwoScore++;
 };
+
+
+// REMOVE POINT FUNCTION
+Players.prototype.removePointOne = function () {
+    return this.playerOneScore--;
+};
+
+Players.prototype.removePointTwo = function () {
+    return this.playerTwoScore--;
+};
+
+
 
 //Check Card Lengths.  When Both lengths are 0, check and compare scores.
 var cardLengthOne;
 var cardLengthTwo;
 Players.prototype.checkCardLengthOne = function () {
     cardLengthOne = $(".player-one").children().length;
-    console.log(cardLengthOne);
+    // console.log(cardLengthOne);
     return cardLengthOne;
 
 };
 
+
 Players.prototype.checkCardLengthTwo = function () {
     cardLengthTwo = $(".player-two").children().length;
-    console.log(cardLengthTwo);
+    // console.log(cardLengthTwo);
     return cardLengthTwo;
 };
 
@@ -64,8 +78,9 @@ Players.prototype.compareScores = function () {
 
 };
 
+//Check to see if the white card decks are empty before comparing scores.
 Players.prototype.whoWon = function () {
-  if (cardLengthOne === 0 && cardLengthTwo === 0) {
+  if (cardLengthOne === 0 || cardLengthTwo === 0) {
     this.compareScores();
   }
 };

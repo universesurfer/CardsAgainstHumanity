@@ -13,9 +13,9 @@ function CardsAgainstHumanity (blackCards, whiteCards) {
       "Here is the church. \n Here is the steeple. \n Open the doors \n And there is ________________.",
       "It's a pity that kids these days are all getting involved with _______________.",
       "Alternative medicine is now embracing the curative powers of _____________.",
-      "And the Academy Award for ___________ goes to ___________.", "What's that sound?",
+      "What's that sound?",
       "What ended my last relationship?",
-      "MTV's new reality show features eight washed-up celebrities living with __________.", "I drink to forget ____________.", "I'm sorry Professor, but I couldn't complete my homework because of _________.", "What is Batman's guilty pleasure?", "What's a girl's best friend?", "TSA guidelines now prohibit __________ on airplanes.", "_____________.  That's how I want to die.", "Instead of coal, Santa now gives the bad children ___________.", "In 1,000 years, when paper money is a distant memory, how will we pay for goods and services?", "Introducing the amazing superhero/sidekick duo, _________ and _________", "A romantic candlelit dinner would be incomplete without ___________.", "_________.  Betcha can't have just one!", "White people like ___________.", "__________.  High five, bro.", "Next from J.K. Rowling:  Harry Potter and the Chamber of _________.", "War!  What is it good for?", "During sex, I like to think about _____________.", "What are my parents hiding from me?", "What will always get you laid?", "In L.A. County Jail, word is you can trade 200 cigarettes for ____________.",
+      "MTV's new reality show features eight washed-up celebrities living with __________.", "I drink to forget ____________.", "I'm sorry Professor, but I couldn't complete my homework because of _________.", "What is Batman's guilty pleasure?", "What's a girl's best friend?", "TSA guidelines now prohibit __________ on airplanes.", "_____________.  That's how I want to die.", "Instead of coal, Santa now gives the bad children ___________.", "In 1,000 years, when paper money is a distant memory, how will we pay for goods and services?", "A romantic candlelit dinner would be incomplete without ___________.", "_________.  Betcha can't have just one!", "White people like ___________.", "__________.  High five, bro.", "Next from J.K. Rowling:  Harry Potter and the Chamber of _________.", "War!  What is it good for?", "During sex, I like to think about _____________.", "What are my parents hiding from me?", "What will always get you laid?", "In L.A. County Jail, word is you can trade 200 cigarettes for ____________.",
         "What will I bring back in time to convince people that I am a powerful wizard?",
         "Coming to Broadyway this season, ____________: The Musical.",
         "After the earthquake, Sean Penn brought __________ to the people of Haiti.",
@@ -27,15 +27,15 @@ function CardsAgainstHumanity (blackCards, whiteCards) {
         "Life for American Indians was forever changed when the white man introduced them to _________.",
         "What never fails to liven up the party?",
         "Fun tip!  When your man asks you to go down on him, try surprising him with ________ instead.",
-        "Donald Trump's _______ is so good.  It's the best, folks."
+        "Donald Trump's _______ are so good.  They're the best, folks.", "America is really good at __________."
 
 
       ];
 
     this.whiteCards = [
       "Donald Trump","Being on fire.", "Racism", "Old-people smell.", "Women in yogurt commercials",
-      "Trump's micropenis", "Classist undertones", "Not giving a shit about the Third World",
-      "Court ordered rehab.", "A windmill full of corpses.", "The gays.", "An oversized lollipop.",
+      "Trump's micropenis", "Gonorrhea", "Not giving a shit about the Third World",
+      "Court ordered rehab.", "A windmill full of corpses.", "The gays.", "Oversized lollipops.",
       "African children.", "An asymmetric boob job.", "Bingeing and purging.", "An Oedipus complex.",
       "A tiny horse.", "Boogers.", "Penis Envy.", "Barack Obama.", "Scientology.", "Dry heaving.",
       "Skeletor.", "Darth Vader.", "Advice from a wise, old black man.", "Five dollar footlongs.",
@@ -47,7 +47,7 @@ function CardsAgainstHumanity (blackCards, whiteCards) {
       "A gentle caress of the inner thigh.", "The Amish.", "The rhythms of Africa.", "Lance Armstrong's missing testicle",
       "Pedophiles.", "The Pope.", "Flying Sex Snakes.", "Sarah Palin.", "Sexy Pillow Fights.", "Invading Poland.",
       "Civilian Casualties.", "The female orgasm.", "Dying of dysentary.", "Magnets.", "Jewish Fraternities.",
-      "Agriculture.", "Surprise sex!", "The Trail of Tears.", "An M. Night Shyamalan plot twist.", "Funky fresh rhymes.",
+      "Surprise sex!", "The Trail of Tears.", "An M. Night Shyamalan plot twist.", "Funky fresh rhymes.",
       "The light of a billion suns.", "Amputees.", "Throwing a virgin into a volcano.", "Italians.", "Explosions.",
       "A good sniff.", "Destroying the evidence.", "Children on leashes.", "Catapults.", "One trillion dollars.",
       "Friends with benefits.", "Dying.", "Silence.", "Growing a pair.", "Justin Bieber.", "The Holy Bible.",
@@ -66,8 +66,12 @@ function CardsAgainstHumanity (blackCards, whiteCards) {
       "Alter boys.", "50,000 volts straight to the nipples.", "The folly of man.", "72 virgins.",
       "Extremely tight pants.", "Our first chimpanzee president.", "Two midgets shitting into a bucket.",
       "Dropping a chandelier on your enemies and riding the rope up.",
-      "Donald Trump's terrible breath."
-
+      "Donald Trump's terrible breath.", "A botched vasectomy.", "Your naked roommate.", "Bitches.",
+      "The art of seduction.", "Awkward eye contact.", "Crippling debt.", "Fiery poops.", "Same sex ice dancing.",
+      "When you fart and a little bit comes out.", "Concealing a boner.", "A robust mongoloid.", "The Rapture.",
+      "Harry Potter erotica.", "Winking at old people.", "Being a motherfucking sorcerer.",
+      "A homoerotic volleyball montage.", "Assless chaps.", "A sad handjob.", "White privilege.",
+      "Ethnic cleansing."
     ];
 
     newWhiteDeck = this.shuffleDeck();
